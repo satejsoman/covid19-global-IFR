@@ -25,4 +25,4 @@ b. in `choropleth.py`, update the `results_path` variable to the path of the mod
 
 
 ## update geometries (optional)
-if we need to add locations (e.g. for sero-only studies), we'll need to download additional delineations and wire them up as show in `assemble_gdf.py`.
+if we need to add locations (e.g. for sero-only studies), we'll need to download additional delineations and wire them up as shown in `assemble_gdf.py`.
