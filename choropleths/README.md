@@ -19,4 +19,10 @@ pip3 install -r requirements.txt
 
 ## run workflow 
 
-in `choropleth.py`, update the `results_path` variable to the path of the model results CSV, and then run `python3 choropleth.py` 
+a. unzip the `IFR_geometries.csv.zip` file in the same directory as the `choropleth.py` file.
+
+b. in `choropleth.py`, update the `results_path` variable to the path of the model results CSV, and then run `python3 choropleth.py` 
+
+
+# update geometries (optional)
+if we need to add locations (e.g. for sero-only studies), we'll need to download additional delineations and wire them up as show in `assemble_gdf.py`.
