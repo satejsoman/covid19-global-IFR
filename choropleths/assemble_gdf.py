@@ -6,6 +6,8 @@ from tqdm import tqdm
 
 data = Path.home() / "Downloads"
 
+
+# load downloaded GADM shapefiles
 shp_dst  = lambda c: data / f"gadm36_{c}_shp"
 load     = lambda c: gpd.read_file(max(shp_dst(c).glob("*shp")))
 
@@ -26,6 +28,7 @@ PAK = load("PAK")
 MEX = gpd.read_file(data / "gadm36_MEX_gpkg" / "gadm36_MEX.gpkg")
 COL = gpd.read_file(data / "COL_adm_shp"     / "COL_adm2.shp")
 
+# associate each location_id with a GADM delineation
 queries = [
 #    id   country         location                            shp  col       filter                    display_as_point
     (38,  "Argentina",    "Buenos Aires City",                ARG, "NAME_1", "Ciudad de Buenos Aires", True),
@@ -73,6 +76,7 @@ queries = [
     (90,  "South Africa", "Mitchells Plain",                  ZAF, "NAME_3", "City of Cape Town",      True)
 ]
 
+# assemble GeoDataFrame with all selected geometries
 geometries = [
     df[df[col] == val]\
         .dissolve(by = col)\
