@@ -51,7 +51,7 @@ P_levels       = R @ S
 
 ##observed prevalence assuming representative samples
 P = np.piecewise(x, [(l <= x) & (x < h) for (l, h) in bins], P_levels)
-
+P[-1] = P[-2] # smooth end of vector
 # -----------------------------
 # initial plots
 # -----------------------------
